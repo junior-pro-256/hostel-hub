@@ -1,0 +1,357 @@
+import '../models/hostel.dart';
+import '../models/manager.dart';
+import '../models/room_type.dart';
+import '../models/student.dart';
+
+/// Sample data (fictional hostels; coordinates are approximate) near
+/// Makerere, Kyambogo, MUBS and UICT in Kampala. Prices are UGX per semester.
+class MockHostelData {
+  MockHostelData._();
+
+  static const Student student = Student(
+    id: 's1',
+    name: 'Amina Nakato',
+    email: 'amina@example.com',
+    phone: '+256700000001',
+    university: 'Makerere University',
+  );
+
+  static const List<Hostel> hostels = [
+    // ---------------- Makerere ----------------
+    Hostel(
+      id: 'h1',
+      name: 'Kikoni Heights Hostel',
+      address: 'Kikoni, Kampala',
+      institution: 'Makerere',
+      description:
+          'Modern hostel a short walk from the main gate with 24/7 security, '
+          'reliable water and a quiet study lounge.',
+      distanceKm: 0.4,
+      rating: 4.7,
+      reviewCount: 128,
+      images: [
+        'assets/images/hostel_building_1.jpg',
+        'assets/images/hostel_room_1.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 1200000, availableUnits: 4, capacity: 1),
+        RoomType(id: 'r2', name: 'Double', pricePerSemester: 800000, availableUnits: 0, capacity: 2),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Study room', 'Laundry', 'Power backup'],
+      manager: Manager(
+        id: 'm1',
+        name: 'Grace Namukasa',
+        phone: '+256700111222',
+        whatsapp: '+256700111222',
+        isVerified: true,
+        photoAsset: 'assets/images/manager.jpg',
+      ),
+      latitude: 0.3342,
+      longitude: 32.5685,
+    ),
+    Hostel(
+      id: 'h2',
+      name: 'Wandegeya Court',
+      address: 'Wandegeya, Kampala',
+      institution: 'Makerere',
+      description:
+          'Affordable shared rooms with a canteen on site and easy transport '
+          'to campus.',
+      distanceKm: 0.9,
+      rating: 4.3,
+      reviewCount: 86,
+      images: [
+        'assets/images/hostel_building_2.jpg',
+        'assets/images/hostel_room_2.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Double', pricePerSemester: 650000, availableUnits: 6, capacity: 2),
+        RoomType(id: 'r2', name: 'Triple', pricePerSemester: 520000, availableUnits: 3, capacity: 3),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Canteen'],
+      manager: Manager(
+        id: 'm2',
+        name: 'Peter Okello',
+        phone: '+256700333444',
+        whatsapp: '+256700333444',
+        isVerified: true,
+      ),
+      latitude: 0.3365,
+      longitude: 32.5722,
+    ),
+    Hostel(
+      id: 'h3',
+      name: 'Mulago View Residence',
+      address: 'Mulago Hill, Kampala',
+      institution: 'Makerere',
+      description:
+          'Self-contained rooms with private bathrooms, ideal for students '
+          'who want more privacy.',
+      distanceKm: 1.6,
+      rating: 4.5,
+      reviewCount: 64,
+      images: [
+        'assets/images/hostel_room_1.jpg',
+        'assets/images/hostel_building_1.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Self-contained', pricePerSemester: 1500000, availableUnits: 2, capacity: 1),
+        RoomType(id: 'r2', name: 'Single', pricePerSemester: 1000000, availableUnits: 5, capacity: 1),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Parking', 'Power backup'],
+      manager: Manager(
+        id: 'm3',
+        name: 'Sarah Achieng',
+        phone: '+256700555666',
+        whatsapp: '+256700555666',
+        isVerified: false,
+      ),
+      latitude: 0.3398,
+      longitude: 32.5766,
+    ),
+    Hostel(
+      id: 'h4',
+      name: 'Makerere Gate Lodge',
+      address: 'University Road, Kampala',
+      institution: 'Makerere',
+      description:
+          'Right at the gate: the closest option, with a gym and quiet floors.',
+      distanceKm: 0.2,
+      rating: 4.8,
+      reviewCount: 203,
+      images: [
+        'assets/images/hostel_building_2.jpg',
+        'assets/images/hostel_room_2.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 1400000, availableUnits: 1, capacity: 1),
+        RoomType(id: 'r2', name: 'Double', pricePerSemester: 950000, availableUnits: 2, capacity: 2),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Gym', 'Study room', 'Laundry'],
+      manager: Manager(
+        id: 'm4',
+        name: 'David Ssemwogerere',
+        phone: '+256700777888',
+        whatsapp: '+256700777888',
+        isVerified: true,
+      ),
+      latitude: 0.3330,
+      longitude: 32.5670,
+    ),
+
+    // ---------------- Kyambogo ----------------
+    Hostel(
+      id: 'h5',
+      name: 'Banda Student Lodge',
+      address: 'Banda, Kampala',
+      institution: 'Kyambogo',
+      description:
+          'Popular with Kyambogo students: walkable to the main gate, with '
+          'steady water and a laundry area.',
+      distanceKm: 0.5,
+      rating: 4.4,
+      reviewCount: 97,
+      images: [
+        'assets/images/hostel_building_1.jpg',
+        'assets/images/hostel_room_2.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 900000, availableUnits: 3, capacity: 1),
+        RoomType(id: 'r2', name: 'Double', pricePerSemester: 600000, availableUnits: 5, capacity: 2),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Laundry'],
+      manager: Manager(
+        id: 'm5',
+        name: 'Joseph Mugisha',
+        phone: '+256700121212',
+        whatsapp: '+256700121212',
+        isVerified: true,
+      ),
+      latitude: 0.3512,
+      longitude: 32.6320,
+    ),
+    Hostel(
+      id: 'h6',
+      name: 'Kyambogo Hill View Hostel',
+      address: 'Kyambogo, Kampala',
+      institution: 'Kyambogo',
+      description:
+          'Next to the university with a study room, parking and backup '
+          'power for exam season.',
+      distanceKm: 0.2,
+      rating: 4.6,
+      reviewCount: 142,
+      images: [
+        'assets/images/hostel_room_1.jpg',
+        'assets/images/hostel_building_2.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 1100000, availableUnits: 2, capacity: 1),
+        RoomType(id: 'r2', name: 'Self-contained', pricePerSemester: 1600000, availableUnits: 1, capacity: 1),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Study room', 'Power backup', 'Parking'],
+      manager: Manager(
+        id: 'm6',
+        name: 'Esther Akello',
+        phone: '+256700131313',
+        whatsapp: '+256700131313',
+        isVerified: true,
+      ),
+      latitude: 0.3490,
+      longitude: 32.6355,
+    ),
+    Hostel(
+      id: 'h7',
+      name: 'Kireka Road Residence',
+      address: 'Kireka, Kampala',
+      institution: 'Kyambogo',
+      description:
+          'Budget-friendly shared rooms a boda ride from campus, with '
+          'basic security and water.',
+      distanceKm: 2.1,
+      rating: 4.1,
+      reviewCount: 52,
+      images: [
+        'assets/images/hostel_building_2.jpg',
+        'assets/images/hostel_room_1.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Double', pricePerSemester: 480000, availableUnits: 8, capacity: 2),
+        RoomType(id: 'r2', name: 'Triple', pricePerSemester: 400000, availableUnits: 0, capacity: 3),
+      ],
+      amenities: ['WiFi', 'Security', 'Water'],
+      manager: Manager(
+        id: 'm7',
+        name: 'Moses Kato',
+        phone: '+256700141414',
+        whatsapp: '+256700141414',
+        isVerified: false,
+      ),
+      latitude: 0.3455,
+      longitude: 32.6420,
+    ),
+
+    // ---------------- MUBS ----------------
+    Hostel(
+      id: 'h8',
+      name: 'Nakawa Scholars Hostel',
+      address: 'Nakawa, Kampala',
+      institution: 'MUBS',
+      description:
+          'A few minutes on foot from MUBS, with an on-site canteen and '
+          'laundry.',
+      distanceKm: 0.3,
+      rating: 4.5,
+      reviewCount: 118,
+      images: [
+        'assets/images/hostel_building_1.jpg',
+        'assets/images/hostel_room_1.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 1250000, availableUnits: 4, capacity: 1),
+        RoomType(id: 'r2', name: 'Double', pricePerSemester: 850000, availableUnits: 3, capacity: 2),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Canteen', 'Laundry'],
+      manager: Manager(
+        id: 'm8',
+        name: 'Patricia Nabirye',
+        phone: '+256700151515',
+        whatsapp: '+256700151515',
+        isVerified: true,
+      ),
+      latitude: 0.3320,
+      longitude: 32.6170,
+    ),
+    Hostel(
+      id: 'h9',
+      name: 'Ntinda Gateway Hostel',
+      address: 'Ntinda, Kampala',
+      institution: 'MUBS',
+      description:
+          'Quiet neighbourhood with a gym; short taxi ride to MUBS.',
+      distanceKm: 1.8,
+      rating: 4.2,
+      reviewCount: 73,
+      images: [
+        'assets/images/hostel_building_2.jpg',
+        'assets/images/hostel_room_2.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 950000, availableUnits: 6, capacity: 1),
+        RoomType(id: 'r2', name: 'Double', pricePerSemester: 700000, availableUnits: 2, capacity: 2),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Gym'],
+      manager: Manager(
+        id: 'm9',
+        name: 'Brian Ssekandi',
+        phone: '+256700161616',
+        whatsapp: '+256700161616',
+        isVerified: true,
+      ),
+      latitude: 0.3515,
+      longitude: 32.6120,
+    ),
+
+    // ---------------- UICT ----------------
+    Hostel(
+      id: 'h10',
+      name: 'Port Bell Road Lodge',
+      address: 'Nakawa, Port Bell Road',
+      institution: 'UICT',
+      description:
+          'Close to UICT with a study room and backup power for late '
+          'lab work.',
+      distanceKm: 0.4,
+      rating: 4.3,
+      reviewCount: 61,
+      images: [
+        'assets/images/hostel_room_2.jpg',
+        'assets/images/hostel_building_1.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Single', pricePerSemester: 1050000, availableUnits: 3, capacity: 1),
+        RoomType(id: 'r2', name: 'Double', pricePerSemester: 720000, availableUnits: 4, capacity: 2),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Study room', 'Power backup'],
+      manager: Manager(
+        id: 'm10',
+        name: 'Ruth Namatovu',
+        phone: '+256700171717',
+        whatsapp: '+256700171717',
+        isVerified: true,
+      ),
+      latitude: 0.3338,
+      longitude: 32.6195,
+    ),
+    Hostel(
+      id: 'h11',
+      name: 'Tech Hub Residence',
+      address: 'Nakawa, Kampala',
+      institution: 'UICT',
+      description:
+          'Self-contained rooms with fast WiFi, built for IT and '
+          'engineering students.',
+      distanceKm: 0.6,
+      rating: 4.6,
+      reviewCount: 88,
+      images: [
+        'assets/images/hostel_room_1.jpg',
+        'assets/images/hostel_building_2.jpg',
+      ],
+      roomTypes: [
+        RoomType(id: 'r1', name: 'Self-contained', pricePerSemester: 1450000, availableUnits: 2, capacity: 1),
+        RoomType(id: 'r2', name: 'Single', pricePerSemester: 980000, availableUnits: 1, capacity: 1),
+      ],
+      amenities: ['WiFi', 'Security', 'Water', 'Study room', 'Laundry', 'Power backup'],
+      manager: Manager(
+        id: 'm11',
+        name: 'Daniel Opio',
+        phone: '+256700181818',
+        whatsapp: '+256700181818',
+        isVerified: true,
+      ),
+      latitude: 0.3350,
+      longitude: 32.6150,
+    ),
+  ];
+}

@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Hostel listings: signed-in users can read. Only the Admin SDK
+    // (backend/seed) can write, because rules never apply to it.
+    match /hostels/{hostelId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    // Each user can read/write only their own profile (and saved hostels).
+    match /users/{userId} {
+      allow read, write: if signedIn() && request.auth.uid == userId;
+    }
+
+    // Visit / booking requests.
+    match /bookings/{bookingId} {
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.status == 'pending';
+
+      // A student may only cancel their own booking.
+      allow update: if signedIn()
+        && resource.data.userId == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+        && request.resource.data.status == 'cancelled';
+
+      allow delete: if false;
+    }
+  }
+}
